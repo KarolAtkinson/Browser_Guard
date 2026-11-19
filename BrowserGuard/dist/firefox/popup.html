@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BrowserGuard</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">B</div>
+    <div><p class="eyebrow">BROWSERGUARD</p><h1>Protection</h1></div>
+    <button id="settings-link" class="icon-button" type="button" aria-label="Open settings" title="Settings">&#9881;</button>
+  </header>
+  <main>
+    <section class="protection-row">
+      <div><strong id="protection-state">Checking status</strong><p id="protection-copy">Local protection status</p></div>
+      <label class="switch"><input id="enabled" type="checkbox"><span></span><span class="sr-only">Enable BrowserGuard</span></label>
+    </section>
+    <section class="site-status" aria-live="polite">
+      <div class="status-icon" id="status-icon">...</div>
+      <div class="site-copy"><span class="eyebrow">THIS SITE</span><strong id="site-name">Checking current page</strong><span id="site-detail">Local URL analysis</span></div>
+    </section>
+    <div class="stats-row">
+      <div><strong id="blocked-count">0</strong><span>risky visits stopped</span></div>
+      <div><strong id="inspected-count">0</strong><span>pages inspected</span></div>
+    </div>
+    <button id="check-button" class="primary-button" type="button">Check current address</button>
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+    <section class="site-assessment" aria-label="Your site assessment">
+      <span>How do you assess this site?</span>
+      <div><button type="button" data-decision="safe">Safe</button><button type="button" data-decision="unsafe">Unsafe</button><button type="button" data-decision="unsure">Unsure</button></div>
+    </section>
+  </main>
+  <footer><span>Checks run on this device</span><a href="options.html" id="manage-link">Manage settings</a></footer>
+  <script src="popup.js"></script>
+</body>
+</html>

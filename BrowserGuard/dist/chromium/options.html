@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BrowserGuard settings</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="settings-page">
+  <header class="settings-header"><a class="back-link" href="popup.html">&larr; BrowserGuard</a><span class="eyebrow">PREFERENCES</span><h1>Protection settings</h1><p>Controls and domain lists are stored in this browser profile.</p></header>
+  <main class="settings-layout">
+    <section class="settings-section">
+      <h2>Protection</h2>
+      <label class="setting-row"><span><strong>Block known and high-risk URLs</strong><small>Stop visits matching your deny list or strong local phishing signals.</small></span><input id="blockScams" type="checkbox"></label>
+      <label class="setting-row"><span><strong>Block advertising and trackers</strong><small>Filter a small built-in list of common advertising and analytics domains.</small></span><input id="privacyFilters" type="checkbox"></label>
+      <label class="setting-row"><span><strong>Strict mode</strong><small>Raise risk for unencrypted HTTP pages, including non-login pages.</small></span><input id="strictMode" type="checkbox"></label>
+      <label class="setting-row"><span><strong>Label risky search results</strong><small>Apply local URL checks to links on supported search pages.</small></span><input id="safeSearch" type="checkbox"></label>
+    </section>
+    <section class="settings-section domain-section">
+      <h2>Site intelligence database</h2>
+      <p class="section-copy">Assessments and local page-risk signals are stored in this browser profile. Conflicting safe and unsafe assessments move a domain to Greylist until reviewed.</p>
+      <form id="site-assessment-form" class="assessment-form">
+        <input id="assessment-domain" type="text" placeholder="example.com" aria-label="Website domain" required>
+        <select id="assessment-decision" aria-label="Site assessment"><option value="safe">Safe</option><option value="unsafe">Unsafe</option><option value="unsure">Unsure</option></select>
+        <button type="submit">Record assessment</button>
+      </form>
+      <div class="database-tools"><strong id="dataset-count">0 dataset records</strong><div><button id="export-database" type="button">Export database</button><label class="import-button">Import database<input id="import-database" type="file" accept="application/json,.json"></label></div></div>
+      <div class="domain-columns database-columns">
+        <div class="domain-list"><h3>Whitelist</h3><ul id="whitelist"></ul></div>
+        <div class="domain-list"><h3>Blacklist</h3><ul id="blacklist"></ul></div>
+        <div class="domain-list greylist"><h3>Greylist · review needed</h3><ul id="greylist"></ul></div>
+      </div>
+    </section>
+    <section class="settings-section service-section">
+      <h2>Company reputation service</h2>
+      <p class="section-copy">Optional. When configured, BrowserGuard sends only the destination domain over HTTPS for a reputation lookup. Full URLs and page contents stay local.</p>
+      <label class="endpoint-label" for="reputationEndpoint">HTTPS service endpoint</label>
+      <div class="endpoint-row"><input id="reputationEndpoint" type="url" placeholder="https://security.example.com/reputation"><button id="save-endpoint" type="button">Save endpoint</button></div>
+    </section>
+    <p id="settings-feedback" class="settings-feedback" aria-live="polite"></p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

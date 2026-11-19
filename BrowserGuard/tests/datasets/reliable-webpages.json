@@ -1,0 +1,11 @@
+{
+  "name": "Reliable webpage simulation set",
+  "description": "Benign reference destinations for offline URL-classifier checks. All URLs use public reference sites or reserved example domains.",
+  "settings": { "strictMode": false, "allowDomains": [], "denyDomains": [], "greyDomains": [] },
+  "cases": [
+    { "id": "example-home", "url": "https://example.com/", "expected": { "blocked": false, "level": "safe" } },
+    { "id": "iana-reserved-domains", "url": "https://www.iana.org/domains/reserved", "expected": { "blocked": false, "level": "safe" } },
+    { "id": "wikipedia-reference", "url": "https://www.wikipedia.org/wiki/Phishing", "expected": { "blocked": false, "level": "safe" } },
+    { "id": "company-portal-allowlist", "url": "https://portal.example.test/account", "settings": { "allowDomains": ["example.test"] }, "expected": { "blocked": false, "level": "safe", "source": "heuristic" } }
+  ]
+}

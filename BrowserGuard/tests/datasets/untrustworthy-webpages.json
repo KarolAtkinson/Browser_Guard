@@ -1,0 +1,10 @@
+{
+  "name": "Untrustworthy webpage simulation set",
+  "description": "Non-routable test domains exercise local block-list and phishing URL heuristics. The simulator never opens these URLs.",
+  "settings": { "strictMode": false, "allowDomains": [], "denyDomains": [], "greyDomains": [] },
+  "cases": [
+    { "id": "reported-blocked-domain", "url": "https://credential-reset.example.test/", "settings": { "denyDomains": ["example.test"] }, "expected": { "blocked": true, "level": "danger", "source": "blocklist" } },
+    { "id": "encoded-brand-login-lure", "url": "http://xn--pple-43d.paypal-account-verify.secure-check.example.test/login", "expected": { "blocked": true, "level": "danger", "source": "heuristic" } },
+    { "id": "strict-mode-insecure-signin", "url": "http://192.0.2.45/account/login", "settings": { "strictMode": true }, "expected": { "blocked": true, "level": "danger", "source": "heuristic" } }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node --input-type=module -e \"import \\{ access, readFile \\} from 'node:fs/promises'; import path from 'node:path'; for \\(const target of \\['chromium','firefox'\\]\\) \\{ const root = path\\.resolve\\('dist', target\\); const manifest = JSON\\.parse\\(await readFile\\(path\\.join\\(root, 'manifest\\.json'\\), 'utf8'\\)\\); const background = manifest\\.background\\.service_worker \\? \\[manifest\\.background\\.service_worker\\] : manifest\\.background\\.scripts; const paths = \\[\\.\\.\\.background, manifest\\.action\\.default_popup, manifest\\.options_ui\\.page, \\.\\.\\.manifest\\.content_scripts\\.flatMap\\(item => \\[\\.\\.\\.item\\.js, \\.\\.\\.item\\.css\\]\\), \\.\\.\\.manifest\\.declarative_net_request\\.rule_resources\\.map\\(item => item\\.path\\), \\.\\.\\.manifest\\.web_accessible_resources\\.flatMap\\(item => item\\.resources\\)\\]; for \\(const file of paths\\) await access\\(path\\.join\\(root, file\\)\\); console\\.log\\(target \\+ ': ' \\+ paths\\.length \\+ ' manifest resources verified'\\); \\}\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

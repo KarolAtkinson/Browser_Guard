@@ -1,0 +1,14 @@
+{
+  "name": "browserguard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-first browser protection for company users",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:chrome": "node scripts/build.mjs chromium",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "check": "node scripts/check.mjs",
+    "simulate": "node scripts/simulate.mjs",
+    "test": "node --test"
+  }
+}

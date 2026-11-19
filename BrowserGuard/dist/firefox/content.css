@@ -1,0 +1,32 @@
+.browserguard-result {
+  display: inline-block;
+  margin: 0 0 0 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font: 600 11px/1.4 system-ui, sans-serif;
+  vertical-align: middle;
+}
+
+.browserguard-caution { color: #693900; background: #ffdf9b; }
+.browserguard-danger { color: #fff; background: #b92f36; }
+
+.browserguard-notice {
+  position: fixed;
+  z-index: 2147483647;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 16px;
+  max-width: min(430px, calc(100vw - 36px));
+  padding: 15px 16px;
+  border: 1px solid #e2a532;
+  border-radius: 5px;
+  color: #192b3b;
+  background: #fff8e8;
+  box-shadow: 0 8px 30px #102b3b33;
+  font: 13px/1.4 system-ui, sans-serif;
+}
+
+.browserguard-notice strong, .browserguard-notice span { grid-column: 1; }
+.browserguard-notice button { grid-column: 2; grid-row: 1 / span 2; align-self: center; border: 0; background: transparent; color: #075e70; font-weight: 700; cursor: pointer; }

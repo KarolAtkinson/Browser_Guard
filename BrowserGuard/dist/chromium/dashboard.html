@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09131f">
+  <title>BrowserGuard Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="BrowserGuard overview">
+        <span class="brand-shield" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M20 2 36 8v12c0 10-6.5 17-16 22C10.5 37 4 30 4 20V8L20 2Z"/><path d="m12 21 5 5 11-12"/></svg></span>
+        <span><strong>Browser Guard</strong><small>Safer browsing. Greater privacy.</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="Dashboard">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">⌂</span><span>Overview</span></button>
+        <button class="nav-item" data-view="protection"><span class="nav-icon">⬡</span><span>Web Protection</span></button>
+        <button class="nav-item" data-view="privacy"><span class="nav-icon">◈</span><span>Privacy Tools</span></button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon">⊘</span><span>Blocked Activity</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+      <div class="sidebar-status"><span class="live-dot"></span><span><strong id="sidebar-status">Protection Active</strong><small id="sidebar-copy">Keeping you safer online</small></span></div>
+    </aside>
+
+    <main class="workspace">
+      <header class="mobile-header">
+        <span class="brand-shield small" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M20 2 36 8v12c0 10-6.5 17-16 22C10.5 37 4 30 4 20V8L20 2Z"/><path d="m12 21 5 5 11-12"/></svg></span>
+        <strong>Browser Guard</strong>
+        <button id="mobile-menu" type="button" aria-label="Open navigation">☰</button>
+      </header>
+
+      <section class="view active" id="view-overview" aria-labelledby="page-title">
+        <div class="content-grid">
+          <div class="main-column">
+            <section class="hero-status">
+              <div class="hero-shield" aria-hidden="true"><svg viewBox="0 0 100 112"><path d="M50 4 91 20v31c0 27-17 45-41 57C26 96 9 78 9 51V20L50 4Z"/><path d="m29 53 14 14 29-32"/></svg></div>
+              <div class="hero-copy"><p class="eyebrow">BROWSERGUARD OVERVIEW</p><h1 id="page-title">You're protected</h1><p>BrowserGuard checks destinations and pages as you browse, using your local lists and on-device signals.</p><span class="active-pill"><span class="live-dot"></span><span id="hero-state">Protection is active</span></span></div>
+            </section>
+
+            <section class="metric-grid" aria-label="Protection statistics">
+              <article class="metric"><span class="metric-icon red">⊘</span><strong id="metric-blocked">0</strong><span>Risky visits stopped</span><small>All time on this device</small></article>
+              <article class="metric"><span class="metric-icon aqua">◎</span><strong id="metric-inspected">0</strong><span>Pages inspected</span><small>Local page checks</small></article>
+              <article class="metric"><span class="metric-icon green">◉</span><strong id="metric-blacklist">0</strong><span>Blacklisted sites</span><small>Local site database</small></article>
+              <article class="metric"><span class="metric-icon blue">⬡</span><strong id="metric-greylist">0</strong><span>Needs review</span><small>Greylist sites</small></article>
+            </section>
+
+            <section class="activity-panel">
+              <div class="section-heading"><div><p class="eyebrow">ON THIS DEVICE</p><h2>Recent activity</h2></div><button class="text-action" data-view-link="activity">View activity <span aria-hidden="true">→</span></button></div>
+              <div id="recent-activity" class="activity-list" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <aside class="side-column">
+            <section class="control-panel">
+              <article class="control-block">
+                <div class="control-title"><span class="control-icon shield-icon">⬡</span><strong>Web Protection</strong><label class="switch"><input id="enabled-toggle" data-setting="enabled" type="checkbox"><span></span><span class="sr-only">Toggle all protection</span></label></div>
+                <p>Checks risky destinations and local phishing signals before pages open.</p>
+                <ul class="feature-list"><li><span>✓</span> URL and domain checks</li><li><span>✓</span> Phishing-risk signals</li><li><span>✓</span> Search-result risk labels</li></ul>
+              </article>
+              <article class="control-block">
+                <div class="control-title"><span class="control-icon privacy-icon">◈</span><strong>Privacy Tools</strong><label class="switch"><input id="privacy-toggle" type="checkbox"><span></span><span class="sr-only">Toggle ad and tracker blocking</span></label></div>
+                <p>Filters common advertising and analytics requests across sites.</p>
+                <ul class="feature-list"><li><span>✓</span> Tracker filtering</li><li><span>✓</span> Ad and analytics filtering</li><li><span>✓</span> Runs locally in your browser</li></ul>
+              </article>
+            </section>
+            <section class="confidence-panel">
+              <div class="confidence-title"><span class="brand-shield mini" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M20 2 36 8v12c0 10-6.5 17-16 22C10.5 37 4 30 4 20V8L20 2Z"/><path d="m12 21 5 5 11-12"/></svg></span><strong>Browse with confidence</strong></div>
+              <p>Risk checks, your site lists, and privacy filters are managed here. Page analysis stays on this device.</p>
+              <div class="privacy-illustration" aria-hidden="true"><div class="browser-window"><div class="window-dots"><i></i><i></i><i></i></div><span class="window-shield">✓</span></div><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-protection" aria-labelledby="protection-title">
+        <div class="view-heading"><p class="eyebrow">DEFENSE CONTROLS</p><h1 id="protection-title">Web Protection</h1><p>Choose how BrowserGuard checks websites and handles risk.</p></div>
+        <div class="settings-list">
+          <article class="setting-card"><span class="setting-symbol">⬡</span><span class="setting-text"><strong>Web protection</strong><small>Enable URL checks, page inspection, and block-list enforcement.</small></span><label class="switch"><input data-setting="enabled" type="checkbox"><span></span><span class="sr-only">Enable web protection</span></label></article>
+          <article class="setting-card"><span class="setting-symbol red">⊘</span><span class="setting-text"><strong>Block high-risk websites</strong><small>Stop Blacklist matches and URLs scoring 72 or more risk points.</small></span><label class="switch"><input data-setting="blockScams" type="checkbox"><span></span><span class="sr-only">Block high-risk websites</span></label></article>
+          <article class="setting-card"><span class="setting-symbol aqua">⌕</span><span class="setting-text"><strong>Label search results</strong><small>Show local risk labels beside supported search result links.</small></span><label class="switch"><input data-setting="safeSearch" type="checkbox"><span></span><span class="sr-only">Label risky search results</span></label></article>
+          <article class="setting-card"><span class="setting-symbol amber">!</span><span class="setting-text"><strong>Strict mode</strong><small>Raise the risk score for all pages served over unencrypted HTTP.</small></span><label class="switch"><input data-setting="strictMode" type="checkbox"><span></span><span class="sr-only">Enable strict mode</span></label></article>
+        </div>
+        <div class="inline-tools"><div><strong>Site intelligence</strong><span id="site-list-summary">Loading local site lists</span></div><button class="outline-button" data-go-options>Manage site lists <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <section class="view" id="view-privacy" aria-labelledby="privacy-title">
+        <div class="view-heading"><p class="eyebrow">LOCAL PRIVACY</p><h1 id="privacy-title">Privacy Tools</h1><p>Control BrowserGuard's built-in advertising and tracker filters.</p></div>
+        <div class="settings-list">
+          <article class="setting-card"><span class="setting-symbol aqua">◈</span><span class="setting-text"><strong>Block common trackers</strong><small>Filter requests to the bundled analytics and tracking domains.</small></span><label class="switch"><input data-setting="blockTrackers" type="checkbox"><span></span><span class="sr-only">Block common trackers</span></label></article>
+          <article class="setting-card"><span class="setting-symbol blue">⊘</span><span class="setting-text"><strong>Block common advertising</strong><small>Filter requests to the bundled ad-serving domains.</small></span><label class="switch"><input data-setting="blockAds" type="checkbox"><span></span><span class="sr-only">Block common advertising</span></label></article>
+        </div>
+        <div class="privacy-note"><span class="note-icon">i</span><p>Filtering uses a small, locally bundled ruleset. It does not inspect page contents or send browsing activity to a server. The rules are included with this extension.</p></div>
+      </section>
+
+      <section class="view" id="view-activity" aria-labelledby="activity-title">
+        <div class="view-heading"><p class="eyebrow">LOCAL HISTORY</p><h1 id="activity-title">Blocked Activity</h1><p>Recent protection events recorded in this browser profile.</p></div>
+        <div class="activity-toolbar"><span id="activity-count">0 events</span><button class="outline-button" id="clear-activity">Clear activity</button></div>
+        <div class="full-activity activity-panel"><div id="all-activity" class="activity-list" aria-live="polite"></div></div>
+      </section>
+
+      <section class="view" id="view-settings" aria-labelledby="settings-title">
+        <div class="view-heading"><p class="eyebrow">PREFERENCES</p><h1 id="settings-title">Settings</h1><p>Manage BrowserGuard's behavior and local site intelligence.</p></div>
+        <div class="settings-list">
+          <article class="setting-card"><span class="setting-symbol green">✓</span><span class="setting-text"><strong>Protection enabled</strong><small>Master switch for BrowserGuard's local protection features.</small></span><label class="switch"><input data-setting="enabled" type="checkbox"><span></span><span class="sr-only">Enable BrowserGuard</span></label></article>
+        </div>
+        <div class="settings-actions">
+          <button class="action-row" data-go-options><span><strong>Site intelligence database</strong><small>Review Whitelist, Blacklist, and Greylist. Import or export a dataset.</small></span><span aria-hidden="true">→</span></button>
+          <button class="action-row" id="open-options"><span><strong>Company reputation service</strong><small>Configure an optional HTTPS domain-reputation endpoint.</small></span><span aria-hidden="true">→</span></button>
+        </div>
+        <p class="dashboard-version">BrowserGuard · Local-first browser protection</p>
+      </section>
+      <p id="dashboard-feedback" class="dashboard-feedback" role="status" aria-live="polite"></p>
+    </main>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
